@@ -9,7 +9,7 @@ module.exports = {
             loader:'babel',
             exclude:[/node_modules/],
             query:{
-                presets:['es2015','stage-1','react','react-hmre'],
+                presets:['es2015','stage-1','react'],
                 plugins:[
                   'transform-flow-strip-types',
                   'transform-class-properties',

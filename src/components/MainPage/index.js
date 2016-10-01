@@ -8,6 +8,7 @@ import getCurrentsend from './../../middlewares/apiSendCurrentPosition';
 import RowOfJiro from './RowOfJiro';
 import Radium,{ StyleRoot } from 'radium';
 import FAB from './FAB';
+import AppBar from 'material-ui/AppBar';
 
 const style = {
     margin: 5,
@@ -42,7 +43,7 @@ export default class MainPage extends Component {
             mobile: false,
         };
 
-        var _ua = (function(u){
+        const _ua = (function(u){
           return {
             Tablet:(u.indexOf("windows") != -1 && u.indexOf("touch") != -1 && u.indexOf("tablet pc") == -1)
               || u.indexOf("ipad") != -1
@@ -60,7 +61,7 @@ export default class MainPage extends Component {
           }
         })(window.navigator.userAgent.toLowerCase());
         const { Mobile } = _ua;
-        this.setState({mobile: _ua});
+        this.setState({mobile: Mobile});
     }
 
     componentWillMount() {
@@ -76,7 +77,7 @@ export default class MainPage extends Component {
                 key={index}
                 {...prop}
                 currentLocation={this.state.currentLocation}
-                mobile={this.state.mobile} 
+                mobile={this.state.mobile}
             />
         ))
         return array;
@@ -85,6 +86,10 @@ export default class MainPage extends Component {
     render() {
         return (
             <div>
+              <AppBar
+                title="Title"
+                iconClassNameRight="muidocs-icon-navigation-expand-more"
+              />
               <div style={[styles.container]}>
                   {this._renderRow()}
               </div>

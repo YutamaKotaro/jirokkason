@@ -18,12 +18,12 @@ const styles = {
       display: 'flex',
   },
   distanceText: {
-      width: '50%',
+      width: '70%',
       display: 'flex',
       alignItems: 'center',
   },
   buttonArea: {
-      width: '50%',
+      width: '30%',
       display:'flex',
       flexDirection:'row-reverse',
   }
@@ -55,9 +55,9 @@ export default class RowOfJiro extends Component {
     }
 
     render() {
-        const { imageurl } = this.props;
+        const { imageurl, mobile } = this.props;
         const imageStyle = {
-              height: '300px',
+              height: !mobile ? '170px' : '300px',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
               backgroundImage: `url(${imageurl})`,
@@ -77,7 +77,7 @@ export default class RowOfJiro extends Component {
                   </div>
                   <div style={styles.buttonArea}>
                     <RaisedButton
-                        label="店舗へGO"
+                        label={!mobile ? "Go" : "店舗へGO"}
                         onTouchTap={this._onPress}
                         backgroundColor="rgb(255, 230, 0)"
                         labelColor="black"
