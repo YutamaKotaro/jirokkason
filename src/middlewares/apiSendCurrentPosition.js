@@ -6,15 +6,14 @@ const getCurrentsend = (callback, _callback) =>{
         const { coords: { latitude, longitude }} = res;
         _callback({latitude, longitude});
         const _url = `https://ziro-atk.c9users.io/search/${longitude},${latitude}`;
-        fetch(_url, {
-            headers: {
-             'content-type': 'application/json'
-            }
-        })
-          .then(response => response.json())
-          .then(res => {
-            callback(res);
-          })
+        const request = new XMLHttpRequest();
+        request.open('GET', _url);
+        request.setRequestHeader('content-type', 'application/json');
+        request.onload = () => {
+            const response = JSON.parse(request.responseText);
+            callback(response);
+        };
+        request.send();
     },
     err => {
         console.log(err);
