@@ -7,6 +7,7 @@ import callApi from './../../middlewares/apiSend';
 import getCurrentsend from './../../middlewares/apiSendCurrentPosition';
 import RowOfJiro from './RowOfJiro';
 import Radium,{ StyleRoot } from 'radium';
+import FAB from './FAB';
 
 const style = {
     margin: 5,
@@ -22,8 +23,8 @@ const styles = {
       },
       '@media screen and (max-width: 800px)': {
         width: '100%',
-      }
-
+      },
+      marginBottom: '8rem',
     }
 }
 
@@ -33,12 +34,12 @@ export default class MainPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
+            data: DATA,
         };
     }
 
     componentWillMount() {
-        getCurrentsend((data) => {this.setState({data})});
+        // getCurrentsend((data) => {this.setState({data})});
     }
 
     _renderRow() {
@@ -50,8 +51,11 @@ export default class MainPage extends Component {
 
     render() {
         return (
-            <div style={[styles.container]}>
-                {this._renderRow()}
+            <div>
+              <div style={[styles.container]}>
+                  {this._renderRow()}
+              </div>
+              <FAB />
             </div>
         );
     }

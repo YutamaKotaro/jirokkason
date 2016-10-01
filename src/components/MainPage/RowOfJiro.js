@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import Radium from 'radium';
 
 const styles = {
@@ -48,6 +48,11 @@ export default class RowOfJiro extends Component {
       window.open(`http://maps.google.com/maps?q=${latitude},${longitude}`, 'new');
     }
 
+    roundOff(value){
+      const _pow = Math.pow( 10 , 2 ) ;
+      return Math.round( value * _pow ) / _pow ;
+    }
+
     render() {
 
         const { imageurl } = this.props;
@@ -68,10 +73,15 @@ export default class RowOfJiro extends Component {
               <CardText>
                 <div style={styles.buttonContainer}>
                   <div style={styles.distanceText}>
-                    <div>この店舗までの距離：{this.props.distance}km</div>
+                    <div>この店舗までの距離：{this.roundOff(this.props.distance)}km</div>
                   </div>
                   <div style={styles.buttonArea}>
-                    <FlatButton label="店舗へGO" onTouchTap={this._onPress}/>
+                    <RaisedButton
+                        label="店舗へGO"
+                        onTouchTap={this._onPress}
+                        backgroundColor="rgb(255, 230, 0)"
+                        labelColor="black"
+                    />
                   </div>
                 </div>
               </CardText>
