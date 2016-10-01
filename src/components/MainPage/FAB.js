@@ -16,10 +16,14 @@ export default class FAB extends Component {
                position:'fixed',
                bottom: '5%',
                right: '5%',
+               color:'black'
+            }}
+            iconStyle={{
+                fill: 'black',
             }}
             onTouchTap={this._onPress}
           >
-            <Refresh color={'black'} />
+            <Refresh />
           </FloatingActionButton>
         );
       }
