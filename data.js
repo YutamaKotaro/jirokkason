@@ -1,18 +1,40 @@
 const DATA = [
-  {
-      name: 'test1',
-      longitude: 1243,
-      latitude: 1423,
-  },
-  {
-      name: 'test2',
-      longitude: 214,
-      latitude: 41242,
-      
-  },
-  {
-
-  },
+  {name: "三田本店", longitude: '139.741644', latitude: '35.648025'},
+  {name: "目黒店", longitude: '139.707064', latitude: '35.634193'},
+  {name: "仙川店", longitude: '139.583940', latitude: '35.661766'},
+  {name: "蒲田店", longitude: '139.714579', latitude: '35.563732'},
+  {name: "品川店", longitude: '139.743054', latitude: '35.623914'},
+  {name: "新宿小滝橋通り店", longitude: '139.698338', latitude: '35.696330'},
+  {name: "環七新代田店", longitude: '139.661906', latitude: '35.660414'},
+  {name: "八王子野猿街道店２", longitude: '139.401366', latitude: '35.629514'},
+  {name: "池袋東口店", longitude: '139.713875', latitude: '35.728276'},
+  {name: "新小金井街道店", longitude: '139.496208', latitude: '35.708436'},
+  {name: "亀戸店", longitude: '139.826679', latitude: '35.701934'},
+  {name: "京急川崎店", longitude: '139.705200', latitude: '35.534951'},
+  {name: "松戸駅前店", longitude: '139.899260', latitude: '35.785977'},
+  {name: "めじろ台法政大学前店", longitude: '139.310392', latitude: '35.629493'},
+  {name: "荻窪店", longitude: '139.626290', latitude: '35.703625'},
+  {name: "上野毛店", longitude: '139.638991', latitude: '35.638991'},
+  {name: "京成大久保店", longitude: '140.049617', latitude: '35.691484'},
+  {name: "環七一之江店", longitude: '139.881926', latitude: '35.684085'},
+  {name: "相模大野店", longitude: '139.432931', latitude: '35.529932'},
+  {name: "横浜関内店", longitude: '139.630772', latitude: '35.441967'},
+  {name: "神田神保町店", longitude: '139.756480', latitude: '35.696389'},
+  {name: "小岩店", longitude: '139.880019', latitude: '35.734960'},
+  {name: "ひばりヶ丘駅前店", longitude: '139.543550', latitude: '35.749956'},
+  {name: "桜台駅前店", longitude: '139.661677', latitude: '35.738807'},
+  {name: "栃木街道店", longitude: '139.794919', latitude: '35.422914'},
+  {name: "立川店", longitude: '139.409528', latitude: '35.696519'},
+  {name: "大宮店", longitude: '139.626259', latitude: '35.903420'},
+  {name: "千住大橋駅前店", longitude: '139.741584', latitude: '35.742556'},
+  {name: "茨城守谷店", longitude: '140.000841', latitude: '35.923972'},
+  {name: "湘南藤沢店", longitude: '139.482245', latitude: '35.343056'},
+  {name: "西台駅前店", longitude: '139.674686', latitude: '35.785931'},
+  {name: "中山駅前店", longitude: '139.538650', latitude: '35.513070'},
+  {name: "新橋店", longitude: '139.750589', latitude: '35.665595'},
+  {name: "仙台店", longitude: '140.866206', latitude: '38.261676'},
+  {name: "赤羽店", longitude: '139.720890', latitude: '35.779783'},
 ];
+
 
 export default DATA;
