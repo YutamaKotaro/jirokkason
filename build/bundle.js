@@ -34109,30 +34109,29 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 
 	var getCurrentsend = function getCurrentsend(callback, _callback) {
-	  navigator.geolocation.getCurrentPosition(function (res) {
-	    var _res$coords = res.coords;
-	    var latitude = _res$coords.latitude;
-	    var longitude = _res$coords.longitude;
+	    navigator.geolocation.getCurrentPosition(function (res) {
+	        var _res$coords = res.coords;
+	        var latitude = _res$coords.latitude;
+	        var longitude = _res$coords.longitude;
 
-	    _callback({ latitude: latitude, longitude: longitude });
-	    var _url = 'https://ziro-atk.c9users.io/search/' + longitude + ',' + latitude;
-	    fetch(_url, {
-	      headers: {
-	        'content-type': 'application/json'
-	      }
-	    }).then(function (response) {
-	      return response.json();
-	    }).then(function (res) {
-	      callback(res);
+	        _callback({ latitude: latitude, longitude: longitude });
+	        var _url = 'https://ziro-atk.c9users.io/search/' + longitude + ',' + latitude;
+	        var request = new XMLHttpRequest();
+	        request.open('GET', _url);
+	        request.setRequestHeader('content-type', 'application/json');
+	        request.onload = function () {
+	            var response = JSON.parse(request.responseText);
+	            callback(response);
+	        };
+	        request.send();
+	    }, function (err) {
+	        console.log(err);
 	    });
-	  }, function (err) {
-	    console.log(err);
-	  });
 	};
 
 	exports.default = getCurrentsend;
