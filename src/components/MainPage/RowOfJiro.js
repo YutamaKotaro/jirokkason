@@ -44,8 +44,9 @@ export default class RowOfJiro extends Component {
     }
 
     _onPress() {
-      const { longitude, latitude } = this.props;
-      window.open(`http://maps.google.com/maps?q=${latitude},${longitude}`, 'new');
+      const { longitude, latitude, currentLocation } = this.props;
+      const { longitude: _lon, latitude: _lat } = currentLocation;
+      window.open(`http://maps.google.com/maps?saddr=${_lat},${_lon}&daddr=${latitude},${longitude}`, 'new');
     }
 
     roundOff(value){
@@ -54,7 +55,6 @@ export default class RowOfJiro extends Component {
     }
 
     render() {
-
         const { imageurl } = this.props;
         const imageStyle = {
               height: '300px',

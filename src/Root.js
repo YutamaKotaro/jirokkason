@@ -10,7 +10,7 @@ import { DEFAULT_PAGE_PATH, SUB_PAGE_PATH } from './constants';
 const reducer = combineReducers({
     routing: routerReducer,
 });
-const store = createStore(reducer, middleware);
+const store = createStore(reducer);
 const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = () => (
