@@ -16,10 +16,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 const Root = () => (
     <Provider store={store}>
         <Router history={history}>
-            <Route path={DEFAULT_PAGE_PATH} component={Header}>
-                <IndexRoute component={MainPage} />
-                <Route path={SUB_PAGE_PATH} component={SubPage} />
-          </Route>
+                <Route path={DEFAULT_PAGE_PATH} component={MainPage} />
         </Router>
     </Provider>
 );
