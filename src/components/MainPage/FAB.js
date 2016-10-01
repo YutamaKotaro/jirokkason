@@ -11,7 +11,7 @@ export default class FAB extends Component {
       render() {
         return (
           <FloatingActionButton
-            backgroundColor="rgb(255, 230, 0)"
+            backgroundColor="rgb(247, 226, 25)"
             style={{
                position:'fixed',
                bottom: '5%',

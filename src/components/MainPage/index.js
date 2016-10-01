@@ -8,7 +8,6 @@ import getCurrentsend from './../../middlewares/apiSendCurrentPosition';
 import RowOfJiro from './RowOfJiro';
 import Radium,{ StyleRoot } from 'radium';
 import FAB from './FAB';
-import AppBar from 'material-ui/AppBar';
 
 const style = {
     margin: 5,
@@ -26,7 +25,26 @@ const styles = {
         width: '100%',
       },
       marginBottom: '8rem',
-    }
+    },
+    header: {
+      backgroundColor:"rgb(247, 226, 25)",
+      width:'100%',
+      height:'64px',
+      marginBottom: '10px',
+      boxShadow: '0px 3px 3px rgb(143, 143, 143)',
+      lineHeight: '64px',
+      paddingLeft:'5px',
+    },
+    headerText: {
+      color:' black',
+      fontSize: '35px',
+      fontWeight: '900',
+      fontFamily: 'font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif',
+    },
+    headerTextInner: {
+      color:'rgb(203, 28, 28)',
+      paddingRight:'5px',
+    },
 }
 
 @Radium
@@ -86,10 +104,12 @@ export default class MainPage extends Component {
     render() {
         return (
             <div>
-              <AppBar
-                title="Title"
-                iconClassNameRight="muidocs-icon-navigation-expand-more"
-              />
+              <div style={styles.header}>
+                  <span style={styles.headerText}>
+                    <span style={styles.headerTextInner}>ラーメン</span>
+                    近二郎
+                  </span>
+              </div>
               <div style={[styles.container]}>
                   {this._renderRow()}
               </div>

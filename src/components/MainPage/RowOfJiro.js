@@ -26,6 +26,9 @@ const styles = {
       width: '30%',
       display:'flex',
       flexDirection:'row-reverse',
+  },
+  fontStyle: {
+    fontFamily: 'font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif',
   }
 };
 
@@ -57,7 +60,7 @@ export default class RowOfJiro extends Component {
     render() {
         const { imageurl, mobile } = this.props;
         const imageStyle = {
-              height: !mobile ? '170px' : '300px',
+              height: mobile ? '170px' : '300px',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
               backgroundImage: `url(${imageurl})`,
@@ -66,21 +69,25 @@ export default class RowOfJiro extends Component {
           <div style={styles.container}>
           <Card>
               <CardMedia
-                overlay={<CardTitle title={this.props.name} />}
+                overlay={<CardTitle
+                  title={this.props.name}
+                  titleStyle={styles.fontStyle}
+                />}
               >
                 <div style={imageStyle} />
               </CardMedia>
               <CardText>
                 <div style={styles.buttonContainer}>
                   <div style={styles.distanceText}>
-                    <div>この店舗までの距離：{this.roundOff(this.props.distance)}km</div>
+                    <div style={styles.fontStyle}>この店舗までの距離：{this.roundOff(this.props.distance)}km</div>
                   </div>
                   <div style={styles.buttonArea}>
                     <RaisedButton
-                        label={!mobile ? "Go" : "店舗へGO"}
+                        label={mobile ? "Go" : "店舗へGO"}
                         onTouchTap={this._onPress}
-                        backgroundColor="rgb(255, 230, 0)"
+                        backgroundColor="rgb(247, 226, 25)"
                         labelColor="black"
+                        labelStyle={styles.fontStyle}
                     />
                   </div>
                 </div>
