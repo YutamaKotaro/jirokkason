@@ -1,5 +1,5 @@
 const DATA = [
-  {name: "三田本店", longitude: '139.741644', latitude: '35.648025'},
+  {name: "三田本店", longitude: '139.741644', latitude: '35.648025', imageurl: 'https://static.retrip.jp/article/3462/images/3462f2485fa0-a586-41c5-80b6-e746446dcf5e_m.jpg'},
   {name: "目黒店", longitude: '139.707064', latitude: '35.634193'},
   {name: "仙川店", longitude: '139.583940', latitude: '35.661766'},
   {name: "蒲田店", longitude: '139.714579', latitude: '35.563732'},

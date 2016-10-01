@@ -4,23 +4,41 @@ import { COLORS, SUB_PAGE_PATH } from '../../constants';
 import { browserHistory } from 'react-router';
 import DATA from './../../../data';
 import callApi from './../../middlewares/apiSend';
+import getCurrentsend from './../../middlewares/apiSendCurrentPosition';
 import RowOfJiro from './RowOfJiro';
+import Radium,{ StyleRoot } from 'radium';
 
 const style = {
     margin: 5,
 };
 
+const styles = {
+    container: {
+      '@media screen and (min-width: 800px)': {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+      '@media screen and (max-width: 800px)': {
+        width: '100%',
+      }
+
+    }
+}
+
+@Radium
 export default class MainPage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            data: DATA
+            data: [],
         };
     }
 
     componentWillMount() {
-        callApi('https://ziro-atk.c9users.io/test')
+        getCurrentsend((data) => {this.setState({data})});
     }
 
     _renderRow() {
@@ -32,7 +50,7 @@ export default class MainPage extends Component {
 
     render() {
         return (
-            <div>
+            <div style={[styles.container]}>
                 {this._renderRow()}
             </div>
         );

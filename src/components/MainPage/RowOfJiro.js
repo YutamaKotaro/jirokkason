@@ -1,7 +1,35 @@
 import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import Radium from 'radium';
 
+const styles = {
+  container:{
+    '@media screen and (min-width: 800px)': {
+      width: '80%',
+
+    },
+    '@media screen and (max-width: 800px)': {
+      width: '100%',
+    },
+    marginBottom: '1rem',
+  },
+  buttonContainer: {
+      display: 'flex',
+  },
+  distanceText: {
+      width: '50%',
+      display: 'flex',
+      alignItems: 'center',
+  },
+  buttonArea: {
+      width: '50%',
+      display:'flex',
+      flexDirection:'row-reverse',
+  }
+};
+
+@Radium
 export default class RowOfJiro extends Component {
     constructor(props) {
         super(props);
@@ -20,21 +48,35 @@ export default class RowOfJiro extends Component {
       window.open(`http://maps.google.com/maps?q=${latitude},${longitude}`, 'new');
     }
 
-    // http://maps.google.com/maps?q=35.656573,139.69952+(ココ)
     render() {
+
+        const { imageurl } = this.props;
+        const imageStyle = {
+              height: '300px',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              backgroundImage: `url(${imageurl})`,
+        };
         return (
+          <div style={styles.container}>
           <Card>
               <CardMedia
                 overlay={<CardTitle title={this.props.name} />}
               >
-                <img src="https://static.retrip.jp/article/3462/images/3462f2485fa0-a586-41c5-80b6-e746446dcf5e_m.jpg" />
+                <div style={imageStyle} />
               </CardMedia>
               <CardText>
-                この店舗までの距離：{this.props.distance}m
-                <FlatButton label="店舗へGO" onTouchTap={this._onPress}/>
-
+                <div style={styles.buttonContainer}>
+                  <div style={styles.distanceText}>
+                    <div>この店舗までの距離：{this.props.distance}km</div>
+                  </div>
+                  <div style={styles.buttonArea}>
+                    <FlatButton label="店舗へGO" onTouchTap={this._onPress}/>
+                  </div>
+                </div>
               </CardText>
           </Card>
+        </div>
                   );
     }
 }
